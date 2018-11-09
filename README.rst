@@ -68,8 +68,8 @@ To Train:
 ---------
 >>> python3.5 train_opencv.py
 
-To Recognise/Steaming:
-----------------------
+To Recognise/Stream:
+--------------------
 >>> python3.5 main_opencv.py
 
 Streaming:
