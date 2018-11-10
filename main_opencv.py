@@ -57,15 +57,14 @@ class StreamHandler(Handler):
         print('[INFO] Loading model...')
         model = config_opencv.TRAINED_MODEL_DIRECTORY + config_opencv.TRAINED_MODEL_FILE
 
-        # Exit if no model trained
+        # Check if model trained
         if not io_handler.file_exist(model):
-            print('[ERROR] Please train the model first!')
-            exit(0)
-
-        # Initialise recogniser
-        print('[INFO] Initialise recogniser...')
-        recognizer = config_opencv.FACE_RECOGNIZERS[config_opencv.DEFAULT_FACE_RECOGNIZER]()
-        recognizer.read(model)
+            print('[WARN] No model trained yet!')
+        else:
+            # Initialise recogniser
+            print('[INFO] Initialise recogniser...')
+            recognizer = config_opencv.FACE_RECOGNIZERS[config_opencv.DEFAULT_FACE_RECOGNIZER]()
+            recognizer.read(model)
 
         print('[INFO] Start capturing...')
         while True:
